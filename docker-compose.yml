@@ -1,0 +1,11 @@
+version: '3.1'
+services:
+  spring:
+    build:
+      context: .
+    container_name: revolution_test-spring
+    volumes:
+    - .:/app
+    restart: always
+    ports:
+    - 8083:8083
