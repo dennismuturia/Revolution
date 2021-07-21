@@ -77,7 +77,7 @@ public class PlayerService implements Betting {
     public boolean hasFreeEntry(long id, int amount){
         List<Games>playerGames = gameRepository.getAllGamesForPlayer(playerRepository.getById(id));
         if(playerGames.size() == 0 ){
-            if(amount == 0){
+            if(amount == 0 ||amount > 10 || amount < 1){
                 return false;
             }
         }else{
@@ -87,6 +87,7 @@ public class PlayerService implements Betting {
                 if(amount == 0){
                     return false;
                 }
+                if(amount > 10 || amount < 1) return false;
                 return true;
             }
         }
